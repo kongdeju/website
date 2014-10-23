@@ -36,7 +36,7 @@ Tm of probe &nbsp	 : <input type="text" name="Tmpro" value=55 onClick="if (this.
 Length of primer : <input type="text" name="Lenpri" value=20 onClick="if (this.value==20)    {this.value=''}" size="2"/><br>
 Length of probe  &nbsp &nbsp: <input type="text" name="Lenpro" value=18 onClick="if (this.value==18)    {this.value=''}" size="2" /><br>
 Maxiusm length of PCR region : <input type="text" name="lenmax" value=120 onClick="if (this.value==120)    {this.value=''}" size="2" /><br>
-Minimus length of PCR region : <input type="text" name="lenmin" value=90 onClick="if (this.value==90)    {this.value=''}" size="2" /><br>
+Minimus length of PCR region : <input type="text" name="lenmin" value=60 onClick="if (this.value==60)    {this.value=''}" size="2" /><br>
 <?php 
 echo "<input type=\"text\" name=\"dir\" value=\"$target_dir\" hidden=\"true\"  >";
 echo "<input type=\"text\" name=\"filename\" value=\"$rname\"  hidden=\"true\" >";
