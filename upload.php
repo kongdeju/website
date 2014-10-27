@@ -1,8 +1,12 @@
 <html>
+<div align="center">
 <head>
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <h2><font color="#009100">Welcom <?php echo $_POST["name"]; ?>!</font></h2>
  </head>
+
 <body>
+
 <?php
 $fname = $_POST["name"] . '_' .  time();
 $fdir = 'uploads/' . $fname;
@@ -13,22 +17,23 @@ $target_dir = "/var/www/$fdir/";
 $username = $_POST["name"];
 $target_dirname = $target_dir . basename( $_FILES["uploadFile"]["name"]);
 $rname = basename($_FILES["uploadFile"]["name"]);
-echo $rname;
+
 $stat=0;
-echo "<br>";
+
 if (move_uploaded_file($_FILES["uploadFile"]["tmp_name"],$target_dirname)) {
-    echo "<h2>The file ". basename( $_FILES["uploadFile"]["name"]). " has been uploaded.</h2>";
+    echo "<h4>The file ". basename( $_FILES["uploadFile"]["name"]). " has been uploaded.</h4>";
     $stat=1;
 } else {
-    echo "Sorry, there was an error uploading your file.";echo "<br>";
+    echo "Sorry, there was an error uploading your file.";
 
 }
 
 ?>
-<br>
 
-Welcom <?php echo $_POST["name"]; ?><br>
- 
+
+
+<br>
+ <div id="run">
 <h1> Run ppdesigner</h1>
 <form name="input" action="run.php" method="post">
 Tm of primer 	 : <input type="text" name="Tmpri" size="2" value="55"  onClick="if (this.value==55){this.value=''}" /><?php echo "±"; ?><input type="text" name="udpri" value=5 onClick="if (this.value==5)    {this.value=''}" size="2" /><br>
@@ -45,5 +50,7 @@ echo "<input type=\"text\" name=\"username\" value=\"$username\" hidden=\"true\"
 ?>
 <input type="submit" Value="Run" style="font-size:25px;height:50px;width:200px;)"  onMouseOver="this.style.backgroundColor='lightblue'" onMouseOut="this.style.backgroundColor=''">
 </form>
+</div>
+</div>
 </body>
 </html> 

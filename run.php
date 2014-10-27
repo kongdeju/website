@@ -1,3 +1,4 @@
+<div align="center">
 <?php
 chdir($_POST["dir"]);
 $fname = $_POST["filename"];
@@ -30,4 +31,5 @@ while(1){
 	}
 }*/
 ?>
-<a href="<?php echo "result.php?new=$dir" ?>">Check your result here</a>
+<a href="<?php echo "result.php?new=$dir&name=$fname" ?>">Check your result here</a>
+</div>
