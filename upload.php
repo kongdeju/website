@@ -13,7 +13,8 @@ $fdir = 'uploads/' . $fname;
 $old = umask(0);
 mkdir($fdir,0777);
 umask($old);
-$target_dir = "/var/www/$fdir/";
+$sysdir = exec("pwd");
+$target_dir = "$sysdir/$fdir/";
 $username = $_POST["name"];
 $target_dirname = $target_dir . basename( $_FILES["uploadFile"]["name"]);
 $rname = basename($_FILES["uploadFile"]["name"]);
@@ -23,10 +24,21 @@ $stat=0;
 if (move_uploaded_file($_FILES["uploadFile"]["tmp_name"],$target_dirname)) {
     echo "<h4>The file ". basename( $_FILES["uploadFile"]["name"]). " has been uploaded.</h4>";
     $stat=1;
+
+    $file_content = fopen($target_dirname,'r');
+	while(!feof($file_content)){
+		$line = fgets($file_content);
+		if (preg_match('/</', $line)){
+			system("rm $target_dirname");
+			echo "Ilegal Character!!!";
+		}
+	}
 } else {
     echo "Sorry, there was an error uploading your file.";
 
 }
+
+
 
 ?>
 
